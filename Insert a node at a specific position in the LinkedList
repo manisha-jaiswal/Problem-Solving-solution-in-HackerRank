@@ -1,0 +1,30 @@
+SinglyLinkedListNode* insertNodeAtPosition(SinglyLinkedListNode* head, int data, int position) {
+SinglyLinkedListNode *news = (SinglyLinkedListNode*)malloc(sizeof(SinglyLinkedListNode));
+news->data = data;
+news->next = NULL;
+SinglyLinkedListNode *p = head;
+SinglyLinkedListNode *q;
+int l = 0;
+if(position==1)
+{
+    news->next = head;
+    p = news;
+}
+
+else
+{
+while(head!=NULL && l< position )
+{
+q = head;
+head = head->next;
+l++;
+}
+if(head==NULL)
+{return p;}
+else{
+    q->next = news;
+    news->next = head;
+}
+}
+return p;
+}
